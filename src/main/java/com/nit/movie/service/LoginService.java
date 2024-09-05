@@ -1,4 +1,4 @@
-package com.nit.movie;
+package com.nit.movie.service;
 
 import java.util.List;
 

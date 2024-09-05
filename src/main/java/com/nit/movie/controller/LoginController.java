@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nit.movie.LoginService;
 import com.nit.movie.model.LoginUser;
+import com.nit.movie.service.LoginService;
 
 @RestController
 public class LoginController {
