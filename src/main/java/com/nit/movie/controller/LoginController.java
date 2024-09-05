@@ -3,9 +3,12 @@ package com.nit.movie.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nit.movie.LoginService;
@@ -17,12 +20,14 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 
-	@GetMapping("/nit/loign")
-	public String  checkLogin(@RequestBody LoginUser loginUser) {
+	@GetMapping("/nit/login")
+	public String  checkLogin(@RequestParam String username,String password) {
 		
-		System.out.println("Data from react--->"+loginUser);
 		
-		return "true";
+		LoginUser loginUser = new LoginUser(username,password);
+		
+		return loginService.isValidUser(loginUser);
+		
 	}
 	
 	
@@ -34,5 +39,25 @@ public class LoginController {
 		List<LoginUser> newUser =loginService.saveNewUser(loginUser);
 		
 		return newUser;
+	}
+	
+	
+	@PutMapping("/nit/login/update")
+	public LoginUser  updateUser(@RequestBody LoginUser loginUser) {
+		
+		System.out.println("Data from react--->"+loginUser);
+		
+		return loginService.updateUser(loginUser);
+		
+		
+	}
+	@DeleteMapping("/nit/login/delete")
+	public String  updateUser(@RequestParam int id) {
+		
+		
+		
+		return loginService.deleteUser(id);
+		
+		
 	}
 }

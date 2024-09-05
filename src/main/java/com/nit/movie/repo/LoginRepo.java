@@ -6,4 +6,6 @@ import com.nit.movie.model.LoginUser;
 
 public interface LoginRepo  extends JpaRepository<LoginUser, Integer> {
 
+	LoginUser findByName(String name);
+
 }

@@ -17,6 +17,17 @@ public class LoginUser {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	
+	public LoginUser(String name, String password) {
+		super();
+		this.name = name;
+		this.password = password;
+	}
+
+
+
 	public LoginUser(int id, String name, String password) {
 		super();
 		this.id = id;
