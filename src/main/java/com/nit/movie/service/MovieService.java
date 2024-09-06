@@ -53,4 +53,10 @@ public class MovieService {
 		
 	}
 
+	public Movies getMovie(int id) {
+		
+		return movieRepo.findById(id).get();
+		
+	}
+
 }
